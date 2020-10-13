@@ -3,13 +3,13 @@ from pathlib import Path
 import requests
 import netCDF4 as nc
 
-# knmi variables
+# knmi api url
 knmi_service_url = "https://api.dataplatform.knmi.nl/open-data/datasets/Actuele10mindataKNMIstations/versions/2/files"
 
 # this public api key is provided by the knmi and will expire on the 1st of May 2021
 api_key = "5e554e19274a9600012a3eb1b626f95624124cf89e9b5d74c3304520"
 
-# where to put the datasets
+# where to put the datasets - make sure it exists
 download_directory = "./dataset-download/"
 
 # Verify that the download directory exists
