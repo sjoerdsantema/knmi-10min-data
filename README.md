@@ -1,5 +1,5 @@
 # knmi-10min-data
-Collect the 10 minute actuals from the KNMI API and convert the data into a list with dictionaries
+Collect the 10 minute actuals from the KNMI API, store locally on file and convert the data into a list with dictionaries
 
 # api documentation here
 https://developer.dataplatform.knmi.nl/apis/5f846a2b7ce0830001941167/documentation/
