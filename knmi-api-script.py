@@ -17,12 +17,10 @@ class FetchKnmiData():
                 raise Exception(f"Invalid or non-existing directory: {download_directory}")
             url = knmi_service_url 
             context = ssl._create_unverified_context()
-            uh = urllib.request.Request(url, data=None, headers={'Authorization': api_key}) # collect data
-            with urllib.request.urlopen(uh, context=context) as response:
-                data = response.read()
-                js = json.loads(data)
-                dataset_files = js.get("files")
-                filename = dataset_files[0].get("filename")
+            # construct the filename on the basis of the timestamp
+            timestamp_now = datetime.utcnow()
+            timestamp_latest = timestamp_now - timedelta(minutes=0) - timedelta(minutes=timestamp_now.minute % 10)
+            filename = f"KMDS__OPER_P___10M_OBS_L2_{timestamp_latest.strftime('%Y%m%d%H%M')}.nc"            
             # construct the filename url
             constructed_url=(knmi_service_url+'/'+filename+'/url')
             # get response
